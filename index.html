@@ -3,41 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio_Zairan</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Portofolio Zahran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        nav {
+            background-color: #1f1f1f;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #61dafb;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #1f1f1f;
+        }
+
+        header img {
+            width: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            margin: 10px 0 5px;
+            font-size: 2rem;
+        }
+
+        header h3 {
+            font-weight: normal;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: #1f1f1f;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            flex: 1 1 calc(33.33% - 20px); /* Setiap kartu mengambil 33% lebar */
+            max-width: calc(33.33% - 20px);
+        }
+
+        .skill-card img {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+
+        .skill-card h4 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            color: #d1d1d1;
+        }
+
+        .contact {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: #61dafb;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+
+        .achievements {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .achievements img {
+            width: calc(33.33% - 20px);
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1f1f1f;
+            color: #ffffff;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Media Query untuk Responsivitas */
+        @media (max-width: 768px) {
+            .skill-card {
+                flex: 1 1 calc(50% - 20px); /* Setiap kartu mengambil 50% lebar */
+                max-width: calc(50% - 20px);
+            }
+
+            .achievements img {
+                width: calc(50% - 20px); /* Setiap gambar mengambil 50% lebar */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skill-card {
+                flex: 1 1 100%; /* Setiap kartu mengambil 100% lebar */
+                max-width: 100%;
+            }
+
+            .achievements img {
+                width: 100%; /* Setiap gambar mengambil 100% lebar */
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            header h3 {
+                font-size: 1rem;
+            }
+        }
+
+        #cv h2 {
+    color: #61dafb;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#cv p {
+    color: #d1d1d1;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    background-color: #61dafb;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #21a1f1;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(97, 218, 251, 0.8);
+}
+    </style>
 </head>
 <body>
 
+    <nav>
+        <div class="logo">My Portofolio</div>
+        <ul>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Skill</a></li>
+            <li><a href="#achievements">Pencapaian</a></li>
+            <li><a href="#cv">CV</a></li> <!-- Tambahkan menu CV -->
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
     <header>
-        <img src="img/profil.jpg" alt="Profil">
-        <h1>Zairan<span>ST</span></h1>
-        <h3>Fullstack Developer</h3>
+        <img src="img/profil.png" alt="Profil">
+        <h1>Zahran Fairuz Rahman</h1>
+        <h3><span>Web</span> Developer</h3>
     </header>
 
-    <div class="container">
-        <div class="links">
-            <div class="links">
-                <a href="https://www.instagram.com/_z4fr09/" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
-                </a>
-                <a href="https://www.linkedin.com/in/zahran-fairuz-6805a931b/" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn Logo">
-                </a>
-            </div>
-            
-        </div>
+    <div class="container" id="about">
+        <p>Saya adalah seorang Web developer dan saya besekolah di SMK Wikrama Bogor dengan pengalaman dalam membangun aplikasi dan situs web yang fungsional, responsif, dan user-friendly. Menguasai HTML, CSS, dan JavaScript, saya merancang antarmuka yang bersih dan interaktif, serta mengembangkan backend menggunakan Node.js dan Laravel. Selain itu, saya memiliki keterampilan dalam mengelola database dan menggunakan Git untuk version control, memastikan kode terorganisir dengan baik dalam proyek tim. Saya berkomitmen untuk menciptakan solusi web yang efisien dan mudah digunakan.
 
-        <div class="gallery">
-            <img src="img/Gambar WhatsApp 2024-09-25 pukul 22.24.49_df67e3f3.jpg" alt="Gambar 1">
-            <img src="img/5.jpg" alt="Gambar 2">
-            <img src="img/tote.jpg" alt="Gambar 3">
-            <h4>QUOTES: <br> FORTUNA ADIUVAT<br>Goo ThingsTake Time</h4>
-            
+            Saya terus mengembangkan keterampilan saya untuk menciptakan aplikasi web yang efektif dan responsif.</p>
+    </div>
+
+        <div class="container" id="skills">
+        <h2>Keterampilan</h2>
+        <div class="skills">
+            <div class="skill-card">
+                <img src="img/gtml2.png" alt="HTML">
+                <h4>HTML</h4>
+                <p>Mahir dalam membangun struktur halaman web yang bersih dan SEO-friendly menggunakan HTML.</p>
+            </div>
+            <div class="skill-card">
+                <img src="img/css.png" alt="CSS">
+                <h4>CSS</h4>
+                <p>Terampil dalam menciptakan desain web responsif dan menarik dengan CSS modern, termasuk Flexbox dan Grid.</p>
+            </div>
+            <div class="skill-card">
+                <img src="img/js.png" alt="JavaScript">
+                <h4>JavaScript</h4>
+                <p>Berpengalaman dalam menggunakan JavaScript untuk membuat interaksi dan fitur web yang dinamis.</p>
+            </div>
+            <div class="skill-card">
+                <img src="img/laravel.png" alt="Laravel">
+                <h4>Laravel</h4>
+                <p>Mahir dalam menggunakan Laravel untuk mengembangkan aplikasi web yang efisien dan skalabel, serta mengintegrasikan berbagai fitur seperti autentikasi, routing, dan middleware.</p>
+            </div>
+            <div class="skill-card">
+                <img src="img/database.png" alt="Database">
+                <h4>Database</h4>
+                <p>Terampil dalam merancang dan mengelola database menggunakan SQL, serta mengoptimalkan query dan struktur data untuk performa yang lebih baik.</p>
+            </div>
+            <div class="skill-card">
+                <img src="img/git.png" alt="Git">
+                <h4>Git</h4>
+                <p>Berpengalaman dalam menggunakan Git untuk version control, kolaborasi tim, dan manajemen kode sumber secara efisien.</p>
+            </div>
         </div>
     </div>
 
+    <div class="container" id="achievements">
+        <h2>Pencapaian</h2>
+        <div class="achievements">
+            <img src="img/Dicoding.png" alt="Pencapaian 1">
+            <img src="img/unity.png" alt="Pencapaian 2">
+            <img src="#" alt="Pencapaian 3">
+        </div>
+    </div>
+
+    <div class="container" id="cv">
+        <h2>Curriculum Vitae (CV)</h2>
+        <p>Silakan lihat CV saya di bawah ini.</p>
+        <a href="img/Professional Modern CV Resume.pdf" target="_blank">
+            <button>
+                CV saya
+            </button>
+        </a>
+    </div>    
+
+    <div class="container contact" id="contact">
+        <h2>Kontak</h2>
+        <p><strong>Nomor Telepon:</strong> +62 856-9423-4148</p>
+        <p><strong>Alamat:</strong> Kp. Pasir Buncir, Kecamatan Cigombong, Kabupaten Bogor</p>
+        <p><strong>Email:</strong> zahranfairuzrahman@smkwikrama.sch.id</p>
+    </div>
+
     <footer>
-        <p>&copy; 2024 Portofolio Anda. By : Zahran Fairuz Rahman</p>
+        <p>&copy; 2024 Portofolio Zahran. Semua Hak Dilindungi.</p>
     </footer>
 
 </body>
